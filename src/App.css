@@ -1,0 +1,95 @@
+/* src/App.css */
+
+/* General Styles */
+body { 
+  font-family: Arial, sans-serif; 
+  
+}
+
+.App {
+  
+  text-align: center;
+  width: 100vw;
+  min-height: fit-content;
+  
+}
+
+/* Header Styles */
+
+
+/* Footer Styles */
+footer {
+  background-color: #282c34;
+  padding: 10px;
+  color: white;
+  
+  
+  bottom: 0;
+}
+
+footer p {
+  margin: 0;
+}
+
+/* Hero Section Styles */
+@keyframes videoFade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+
+/* Contact Form Styles */
+.form-shell {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #00000098;
+  justify-content: center;
+  }
+
+form {
+  max-width: 800px;  
+  padding: 50px;
+  
+  border-radius: 5px;
+  background-color: #00000098;  
+}
+
+form label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="email"],
+form textarea {
+  
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+form button {
+  padding: 10px 20px;
+  background-color: #ff0000;
+  border: none;
+  border-radius: 5px;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 2px 2px 8px rgba(255, 255, 255, 0.6);
+}
+
+form button:hover {
+  background-color: #dbba00;
+  box-shadow: 2px 2px 8px rgb(255, 0, 0);
+  scale: 1.1;
+  color: rgb(0, 0, 0);
+}

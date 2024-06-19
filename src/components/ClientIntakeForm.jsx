@@ -48,13 +48,13 @@ const CheckboxLabel = styled.label`
 
 const Button = styled.button`
   padding: 10px 20px;
-  background-color: #61dafb;
+  background-color: red;
   border: none;
   border-radius: 3px;
   color: white;
   cursor: pointer;
   &:hover {
-    background-color: #21a1f1;
+    background-color: gold;
   }
 `;
 

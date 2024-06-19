@@ -17,10 +17,15 @@ const HeaderContainer = styled.header`
 `;
 
 const LogoTxt = styled.h1`
-  font-size: 1.8em;
+  font-size: 2.5em;
   font-weight: 600;
   margin: 0;
   text-shadow: 2px 1px 2px rgba(211, 172, 43, 1);
+
+  &:hover {
+      cursor: pointer;
+    }
+  
 `; 
 
 const Nav = styled.nav`
@@ -143,7 +148,8 @@ const Header = () => {
   return (
     <HeaderContainer>
       <LogoTxt>
-        <a>Gotabat Foryu <img src={phone} style={{ width: '5%', height: 'auto' }} alt="Phone" /> (555) 4-LAWYER!</a>
+         Attorney Site Design 
+          <img src={phone} style={{ width: '5%', height: 'auto' }} alt="Phone" /> (346) 316-6075!
       </LogoTxt>
 
       <Nav>

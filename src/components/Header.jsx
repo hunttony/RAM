@@ -58,6 +58,7 @@ const Nav = styled.nav`
 const Hamburger = styled.div`
   display: none;
   cursor: pointer;
+  z-index: 1000;
 
   @media (max-width: 768px) {
     display: block;

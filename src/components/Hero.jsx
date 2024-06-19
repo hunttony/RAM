@@ -13,10 +13,11 @@ const Hero = () => {
       <source src={video1} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
-
+      <AnimatedText text="For a FREE consultation. Fill in the intake form." />
       <div className="hero-info">
         
         <div>
+           
           <div className="hero-info-left">
             <img src={twenty47} style={{ width: '15%', height: 'auto'}} alt="24/7" />
             <h2>Available 24/7</h2>
@@ -30,7 +31,7 @@ const Hero = () => {
            
           </div>
            </div>   
-           <AnimatedText text="For Free Consultation. Fill in the intake form below." />        
+                
         </div>
 
         <ClientIntakeForm />

@@ -74,6 +74,7 @@ form textarea {
   margin-bottom: 20px;
   border: 1px solid #ccc;
   border-radius: 3px;
+  width: 100%;
 }
 
 form button {

@@ -3,6 +3,7 @@
 import '../styles/Hero.css';
 import video1 from '../content/videos/Untitled design (1).mp4';
 import ContactForm from '../components/ContactForm';
+import twenty47 from '../content/images/24-hours.png';
 
 const Hero = () => {
   return (
@@ -16,6 +17,7 @@ const Hero = () => {
         
         <div>
           <div className="hero-info-left">
+            <img src={twenty47} style={{ width: '15%', height: 'auto'}} alt="24/7" />
             <h2>Available 24/7</h2>
           <p>Our injury legal team is available to answer</p>
            <p>your calls 24/7 and provide you with a free case review.</p>

@@ -38,7 +38,10 @@
   z-index: 100;
   min-height: fit-content;
   
+  @media (max-width: 768px) {
    
+    flex-direction: column;
+  }
 }
 
 .hero-info div {

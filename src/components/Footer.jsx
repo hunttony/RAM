@@ -4,7 +4,7 @@
 const Footer = () => {
   return (
     <footer>
-      <p>&copy; 2024 YourLawSite.com. All rights reserved. Powered by Flavor Pixel Productions.</p>
+      <p>&copy; 2024 AttorneyatLaw.com.  All rights reserved. Powered by Flavor Pixel Productions.</p>
     </footer>
   );
 };

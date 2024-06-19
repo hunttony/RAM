@@ -57,6 +57,7 @@ const DropDownItem = styled.li`
     text-decoration: none;
     background-color: #d3ac2b;
     border-radius: 20px;
+    color: black;
   }
 `;
 

@@ -110,10 +110,9 @@ const MobileMenuItem = styled(motion.li)`
 
 const DropDownMenu = styled.ul`
   display: none;
-  position: absolute;
+  position: relative;
   width: 100%;
-  top: 100%;
-  left:-200px;
+  top: 100%;  
   list-style: none;
   margin: 0;
   padding: 0;

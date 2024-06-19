@@ -17,7 +17,7 @@ const HeaderContainer = styled.header`
 `;
 
 const LogoTxt = styled.h1`
-  font-size: 2.5em;
+  font-size: 2.0em;
   font-weight: 600;
   margin: 0;
   text-shadow: 2px 1px 2px rgba(211, 172, 43, 1);

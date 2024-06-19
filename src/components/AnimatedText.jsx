@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 const AnimatedH2 = styled(motion.h2)`
-  font-size: 1.5em;
+  font-size: 1.6em;
   display: inline-block;
   color: lightgrey;
 `;

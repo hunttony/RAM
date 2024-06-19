@@ -1,4 +1,3 @@
-// src/components/Header.js
 import { useState } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
@@ -25,35 +24,12 @@ const LogoTxt = styled.h1`
   &:hover {
       cursor: pointer;
     }
-  
-`; 
+`;
 
 const Nav = styled.nav`
   display: flex;
   align-items: center;
 `;
-
-/**
-  const NavLinks = styled.ul`
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-  
-    @media (max-width: 768px) {
-      display: none;
-    }
-  `;
-  
-  const NavLink = styled.li`
-    margin: 0 10px;
-    cursor: pointer;
-  
-    &:hover {
-      text-decoration: underline;
-    }
-  `;
-*/
 
 const Hamburger = styled.div`
   display: none;
@@ -80,7 +56,6 @@ const Line = styled(motion.span)`
 
 const MobileMenu = styled(motion.ul)`
   list-style: none;
-  display: flex;
   flex-direction: column;
   padding: 0;
   background-color: #282c34;
@@ -88,10 +63,8 @@ const MobileMenu = styled(motion.ul)`
   top: 60px;
   right: 20px;
   border-radius: 10px;
-  
+  overflow: hidden;
   z-index: 100;
-  
-  display: ${props => (props.isOpen ? 'flex' : 'none')};
 
   @media (min-width: 768px) {
     display: none;
@@ -101,29 +74,20 @@ const MobileMenu = styled(motion.ul)`
 const MobileMenuItem = styled(motion.li)`
   padding: 10px;
   cursor: pointer;
-  position: relative;
 
   &:hover {
     background-color: #3a3f47;
   }
 `;
 
-const DropDownMenu = styled.ul`
-  display: none;
-  position: relative;
-  width: 100%;
-  top: 100%;  
+const DropDownMenu = styled(motion.ul)`
   list-style: none;
-  margin: 0;
+  flex-direction: column;
   padding: 0;
   background-color: rgba(41, 48, 64, 1);
   border-radius: 5px;
+  overflow: hidden;
   z-index: 100;
-  height: fit-content;
-
-  ${MobileMenuItem}:hover & {
-    display: block;
-  }
 `;
 
 const DropDownItem = styled.li`
@@ -131,7 +95,7 @@ const DropDownItem = styled.li`
   cursor: pointer;
   color: lightgrey;
   z-index: 100;
-  height: 100%;
+
   &:hover {
     background-color: #d3ac2b;
   }
@@ -139,44 +103,66 @@ const DropDownItem = styled.li`
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState(null);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
+  const toggleDropdown = (dropdown) => {
+    setActiveDropdown(activeDropdown === dropdown ? null : dropdown);
+  };
+
   return (
     <HeaderContainer>
       <LogoTxt>
-         Attorney Site Design 
-          <img src={phone} style={{ width: '5%', height: 'auto' }} alt="Phone" /> (346) 316-6075!
+        Attorney Site Design
+        <img src={phone} style={{ width: '5%', height: 'auto' }} alt="Phone" /> (346) 316-6075!
       </LogoTxt>
 
       <Nav>
-       
         <Hamburger onClick={toggleMenu}>
           <MenuToggle initial={false} animate={isOpen ? 'open' : 'closed'}>
-            <Line variants={{
-              closed: { rotate: 0, y: 0 },
-              open: { rotate: 45, y: 6 },
-            }} />
-            <Line variants={{
-              closed: { opacity: 1 },
-              open: { opacity: 0 },
-            }} />
-            <Line variants={{
-              closed: { rotate: 0, y: 0 },
-              open: { rotate: -45, y: -6 },
-            }} />
+            <Line
+              variants={{
+                closed: { rotate: 0, y: 0 },
+                open: { rotate: 45, y: 6 },
+              }}
+              transition={{ duration: 0.3 }}
+            />
+            <Line
+              variants={{
+                closed: { opacity: 1 },
+                open: { opacity: 0 },
+              }}
+              transition={{ duration: 0.3 }}
+            />
+            <Line
+              variants={{
+                closed: { rotate: 0, y: 0 },
+                open: { rotate: -45, y: -6 },
+              }}
+              transition={{ duration: 0.3 }}
+            />
           </MenuToggle>
         </Hamburger>
       </Nav>
-      <MobileMenu initial={false} animate={isOpen ? 'open' : 'closed'} isOpen={isOpen}>
+      <MobileMenu
+        initial={{ height: 0 }}
+        animate={{ height: isOpen ? 'auto' : 0 }}
+        transition={{ duration: 0.3 }}
+        isOpen={isOpen}
+      >
         <MobileMenuItem whileTap={{ scale: 0.95 }}>Home</MobileMenuItem>
         <MobileMenuItem whileTap={{ scale: 0.95 }}>The Team</MobileMenuItem>
         <MobileMenuItem whileTap={{ scale: 0.95 }}>Reviews</MobileMenuItem>
-        <MobileMenuItem>
-          Personal injury Areas of Practice
-          <DropDownMenu>
+        <MobileMenuItem onClick={() => toggleDropdown('practice')}>
+          Personal Injury Areas of Practice
+          <DropDownMenu
+            initial={{ height: 0 }}
+            animate={{ height: activeDropdown === 'practice' ? 'auto' : 0 }}
+            transition={{ duration: 0.3 }}
+          >
             <DropDownItem>18 Wheeler Truck Accident Attorneys</DropDownItem>
             <DropDownItem>Drunk Driver Accident Attorneys</DropDownItem>
             <DropDownItem>Car Accident Attorneys</DropDownItem>
@@ -188,11 +174,16 @@ const Header = () => {
           </DropDownMenu>
         </MobileMenuItem>
         <MobileMenuItem whileTap={{ scale: 0.95 }}>Help & Information</MobileMenuItem>
-        <MobileMenuItem whileTap={{ scale: 0.95 }}>Case Review
-            <DropDownMenu>
-              <DropDownItem>Get Your Case Review</DropDownItem>
-              <DropDownItem>Why Hire a Personal Injury Attorney?</DropDownItem>
-            </DropDownMenu>
+        <MobileMenuItem onClick={() => toggleDropdown('case')}>
+          Case Review
+          <DropDownMenu
+            initial={{ height: 0 }}
+            animate={{ height: activeDropdown === 'case' ? 'auto' : 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <DropDownItem>Get Your Case Review</DropDownItem>
+            <DropDownItem>Why Hire a Personal Injury Attorney?</DropDownItem>
+          </DropDownMenu>
         </MobileMenuItem>
       </MobileMenu>
     </HeaderContainer>

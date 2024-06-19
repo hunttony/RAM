@@ -25,15 +25,15 @@ const Hero = () => {
 
 
            <div className="hero-info-right">
-           <AnimatedText text="For Free Consultation. Fill in the intake form below." />
+           
             
-           <ClientIntakeForm />
+           
           </div>
            </div>   
-                     
+           <AnimatedText text="For Free Consultation. Fill in the intake form below." />        
         </div>
 
-        
+        <ClientIntakeForm />
       <div>
       
       </div>

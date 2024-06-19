@@ -32,7 +32,7 @@ const letterVariants = {
     y: [0, -10, 0], // jump effect
     color: ['white', 'gold', 'red'], // color change effect
     transition: {
-      duration: 0.3,
+      duration: 0.2,
       ease: 'easeInOut',
       repeat: 2, // Loop the animation
       repeatType: 'mirror', // Play animation forward and backward

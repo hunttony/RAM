@@ -1,0 +1,143 @@
+import React, { useState } from 'react';
+import styled from 'styled-components';
+
+const FormContainer = styled.div`
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.5);
+`;
+
+const FormGroup = styled.div`
+  margin-bottom: 20px;
+`;
+
+const Label = styled.label`
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+`;
+
+const Input = styled.input`
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+`;
+
+const Select = styled.select`
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+`;
+
+const CheckboxGroup = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`;
+
+const CheckboxLabel = styled.label`
+  margin-right: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+`;
+
+const Button = styled.button`
+  padding: 10px 20px;
+  background-color: #61dafb;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  cursor: pointer;
+  &:hover {
+    background-color: #21a1f1;
+  }
+`;
+
+const ClientIntakeForm = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    contactMethod: '',
+    needs: []
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
+  };
+
+  const handleCheckboxChange = (e) => {
+    const { name, checked } = e.target;
+    setFormData((prevData) => {
+      if (checked) {
+        return { ...prevData, needs: [...prevData.needs, name] };
+      } else {
+        return { ...prevData, needs: prevData.needs.filter((need) => need !== name) };
+      }
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('Form submitted:', formData);
+  };
+
+  return (
+    <FormContainer>
+      <h2>Client Intake Form</h2>
+      <form onSubmit={handleSubmit}>
+        <FormGroup>
+          <Label htmlFor="name">Name</Label>
+          <Input type="text" id="name" name="name" value={formData.name} onChange={handleChange} />
+        </FormGroup>
+        <FormGroup>
+          <Label htmlFor="email">Email</Label>
+          <Input type="email" id="email" name="email" value={formData.email} onChange={handleChange} />
+        </FormGroup>
+        <FormGroup>
+          <Label htmlFor="phone">Phone</Label>
+          <Input type="tel" id="phone" name="phone" value={formData.phone} onChange={handleChange} />
+        </FormGroup>
+        <FormGroup>
+          <Label htmlFor="contactMethod">Preferred Contact Method</Label>
+          <Select id="contactMethod" name="contactMethod" value={formData.contactMethod} onChange={handleChange}>
+            <option value="">Select...</option>
+            <option value="Email">Email</option>
+            <option value="Phone">Phone</option>
+            <option value="Text">Text</option>
+          </Select>
+        </FormGroup>
+        <FormGroup>
+          <Label>What are your needs? (Select all that apply)</Label>
+          <CheckboxGroup>
+            <CheckboxLabel>
+              <Input type="checkbox" name="Consultation" onChange={handleCheckboxChange} />
+              Consultation
+            </CheckboxLabel>
+            <CheckboxLabel>
+              <Input type="checkbox" name="Representation" onChange={handleCheckboxChange} />
+              Representation
+            </CheckboxLabel>
+            <CheckboxLabel>
+              <Input type="checkbox" name="Documentation" onChange={handleCheckboxChange} />
+              Documentation
+            </CheckboxLabel>
+            <CheckboxLabel>
+              <Input type="checkbox" name="Other" onChange={handleCheckboxChange} />
+              Other
+            </CheckboxLabel>
+          </CheckboxGroup>
+        </FormGroup>
+        <Button type="submit">Submit</Button>
+      </form>
+    </FormContainer>
+  );
+};
+
+export default ClientIntakeForm;

@@ -3,7 +3,7 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 //import Logo from '../content/images/GF.png'; // Place your logo in the src/components directory
-import SocialMediaLinks from '../components/SocialMediaLinks';
+
 import phone from '../content/images/phone.png'
 
 const HeaderContainer = styled.header`
@@ -58,7 +58,6 @@ const Nav = styled.nav`
 const Hamburger = styled.div`
   display: none;
   cursor: pointer;
-  z-index: 1000;
 
   @media (max-width: 768px) {
     display: block;
@@ -153,7 +152,7 @@ const Header = () => {
       </LogoTxt>
 
       <Nav>
-        <SocialMediaLinks />
+       
         <Hamburger onClick={toggleMenu}>
           <MenuToggle initial={false} animate={isOpen ? 'open' : 'closed'}>
             <Line variants={{

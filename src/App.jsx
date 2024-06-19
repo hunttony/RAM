@@ -6,6 +6,7 @@ import Hero from './components/Hero';
 import Menu from './components/Menu';
 import './App.css';
 
+
 const App = () => {
   return (
     <div className="App">

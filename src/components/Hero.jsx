@@ -2,8 +2,9 @@
 //import React from 'react';
 import '../styles/Hero.css';
 import video1 from '../content/videos/Untitled design (1).mp4';
-import ContactForm from '../components/ContactForm';
+import ClientIntakeForm from '../components/ClientIntakeForm';
 import twenty47 from '../content/images/24-hours.png';
+import AnimatedText from '../components/AnimatedText';
 
 const Hero = () => {
   return (
@@ -21,11 +22,20 @@ const Hero = () => {
             <h2>Available 24/7</h2>
           <p>Our injury legal team is available to answer</p>
            <p>your calls 24/7 and provide you with a free case review.</p>
-           </div>           
+
+
+           <div className="hero-info-right">
+           <AnimatedText text="For Free Consultation. Fill in the intake form below." />
+            
+           <ClientIntakeForm />
+          </div>
+           </div>   
+                     
         </div>
 
+        
       <div>
-      <ContactForm />
+      
       </div>
 
       </div>

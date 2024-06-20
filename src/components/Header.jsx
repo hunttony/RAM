@@ -17,9 +17,33 @@ const HeaderContainer = styled.header`
 `;
 
 const LogoTxt = styled.h1`
-    display: flex;
-    padding: 5px;
-   justify-content: center; 
+  display: flex;
+  padding: 5px;
+  justify-content: center; 
+  font-size: 2.0em;
+  font-weight: 600;
+  margin: 0;
+  text-shadow: 2px 1px 2px rgba(211, 172, 43, 1);
+
+
+  &:hover {
+      cursor: pointer;
+    }
+
+  &:img {
+      width: 50%;
+      height: auto;
+    }
+
+    &:div {
+      display: flex;
+      align-items: center;
+    }
+`;
+const PhoneNumber = styled.h1`
+  display: flex;
+  padding: 5px;
+  justify-content: center; 
   font-size: 2.0em;
   font-weight: 600;
   margin: 0;
@@ -135,7 +159,8 @@ const Header = () => {
       Attorney Site Design
         
       </LogoTxt>
-      <img src={phone} style={{ width: '50px', height: '60px' }} alt="Phone" /> (346) 316-6075!
+      <img src={phone} style={{ width: '50px', height: '60px' }} alt="Phone" /> 
+      <PhoneNumber>(346) 316-6075!</PhoneNumber>
       <Nav>
         <Hamburger onClick={toggleMenu}>
           <MenuToggle initial={false} animate={isOpen ? 'open' : 'closed'}>

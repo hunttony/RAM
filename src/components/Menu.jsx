@@ -9,7 +9,9 @@ const Nav = styled.nav`
   align-items: center;
   background-color: rgba(51, 58, 74, 1);
   padding: 5px;
-
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  
   @media (max-width: 768px) {
     display: none;
   }

@@ -1,13 +1,16 @@
-import React, { useState } from 'react';
+// src/components/ClientIntakeForm.js
+
+import { useState } from 'react';
 import styled from 'styled-components';
+
 
 const FormContainer = styled.div`
   max-width: 600px;
   margin: 40px auto;
   padding: 20px;
-  
   border-radius: 5px;
   background-color: rgba(0, 0, 0, 0.5);
+  
 `;
 
 const FormGroup = styled.div`
@@ -66,6 +69,7 @@ const ClientIntakeForm = () => {
     contactMethod: '',
     needs: []
   });
+  const [response, setResponse] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -83,9 +87,15 @@ const ClientIntakeForm = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    const res = await fetch('/api/submit-form.js', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData),
+    });
+    const data = await res.json();
+    setResponse(data.message);
   };
 
   return (
@@ -136,6 +146,7 @@ const ClientIntakeForm = () => {
         </FormGroup>
         <Button type="submit">Submit</Button>
       </form>
+      {response && <p>{response}</p>}
     </FormContainer>
   );
 };

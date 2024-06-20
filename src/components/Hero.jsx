@@ -23,10 +23,16 @@ const Hero = () => {
             <h2>Available 24/7</h2>
           <p>Our injury legal team is available to answer</p>
            <p>your calls 24/7 and provide you with a free case review.</p>
+           
+           
+           
 
 
            <div className="hero-info-right">
-           
+           <div>
+            <h1>(346) 316-6075</h1>
+            <p>call to get your site built today!</p>
+            </div>
             
            
           </div>

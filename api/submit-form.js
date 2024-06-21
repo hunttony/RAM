@@ -1,13 +1,10 @@
 import { MongoClient } from 'mongodb';
-import dotenv from 'dotenv';
-
-// Load environment variables from .env.local file
-dotenv.config({ path: '../.env.local' });
 
 let cachedClient = null;
 let cachedDb = null;
 
 const connectToDatabase = async (uri) => {
+  console.log('Connecting to MongoDB with URI: ' + uri);
   if (cachedClient && cachedDb) {
     return { client: cachedClient, db: cachedDb };
   }
@@ -16,9 +13,10 @@ const connectToDatabase = async (uri) => {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   });
-  console.log('client MongoDB: ' + client);
+
   await client.connect();
   const db = client.db(process.env.MONGODB_DB);
+
   console.log('Connected to MongoDB: ' + db.connection);
   cachedClient = client;
   cachedDb = db;
@@ -31,9 +29,9 @@ export default async function handler(req, res) {
     const { name, email, phone, contactMethod, needs } = req.body;
 
     try {
-      const  db  = await connectToDatabase(process.env.MONGODB_URI);
+      const { db } = await connectToDatabase(process.env.MONGODB_URI);
       const collection = db.collection('submissions');
-    
+
       const result = await collection.insertOne({
         name,
         email,
@@ -42,7 +40,7 @@ export default async function handler(req, res) {
         needs,
         createdAt: new Date().toISOString(),
       });
-    
+
       res.status(200).json({ message: 'Form submitted successfully', id: result.insertedId });
     } catch (error) {
       console.error('Error adding document: ', error);

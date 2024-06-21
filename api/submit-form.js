@@ -33,7 +33,7 @@ export default async function handler(req, res) {
     try {
       const { db } = await connectToDatabase(process.env.MONGODB_URI);
       const collection = db.collection('submissions');
-
+    
       const result = await collection.insertOne({
         name,
         email,
@@ -42,7 +42,7 @@ export default async function handler(req, res) {
         needs,
         createdAt: new Date().toISOString(),
       });
-
+    
       res.status(200).json({ message: 'Form submitted successfully', id: result.insertedId });
     } catch (error) {
       console.error('Error adding document: ', error);

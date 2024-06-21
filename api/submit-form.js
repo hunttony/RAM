@@ -18,7 +18,7 @@ const connectToDatabase = async (uri) => {
   });
 
   await client.connect();
-  const db = client.db(process.env.MONGODB_DB);
+  const db = client.db(process.env.MONGODB_URI);
 
   cachedClient = client;
   cachedDb = db;

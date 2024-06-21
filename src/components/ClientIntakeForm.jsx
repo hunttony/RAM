@@ -2,20 +2,19 @@
 
 import { useState } from 'react';
 import styled from 'styled-components';
-import AnimatedText from './AnimatedText';
+
 
 const FormContainer = styled.div`
   max-width: 600px;
   margin: 20px auto;
   padding: 10px;
-  border-radius: 5px;
-  background-color: rgba(0, 0, 0, 0.5);
-
-  
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.5);  
 `;
 
 const FormGroup = styled.div`
   margin-bottom: 20px;
+  border-radius: 20px;  
 `;
 
 const Label = styled.label`
@@ -101,7 +100,7 @@ const ClientIntakeForm = () => {
 
   return (
     <FormContainer>
-      <AnimatedText text="Available 24/7" />
+      
       <h3> Fill in the intake form for a FREE consultation.</h3>
       <form onSubmit={handleSubmit}>
         <FormGroup>

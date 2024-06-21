@@ -1,62 +1,37 @@
 import { useState } from 'react';
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
-//import Logo from '../content/images/GF.png'; // Place your logo in the src/components directory
-
-import phone from '../content/images/phone.png'
+import { motion, AnimatePresence } from 'framer-motion';
+import phone from '../content/images/24-hours-support.gif';
 
 const HeaderContainer = styled.header`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 10px;
-  
-  
-  background-color: rgba(0, 0, 0,.7);
+  background-color: rgba(0, 0, 0, 0.7);
   color: lightgrey;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
-  
 `;
 
 const LogoTxt = styled.h1`
   display: flex;
-  
-  justify-content: center;
-  font-family: 
+  align-items: center;
   font-size: 2.0em;
   font-weight: 600;
   margin: 0;
   text-shadow: 2px 1px 2px rgba(211, 172, 43, 1);
-
-
-  &:hover {
-      cursor: pointer;
-    }
-
-  &:img {
-      width: 50%;
-      height: auto;
-    }
-
-    &:div {
-      display: flex;
-      align-items: center;
-    }
+  cursor: pointer;
 `;
+
 const PhoneNumber = styled.h1`
   display: flex;
+  align-items: center;
   padding: 5px;
-  justify-content: center; 
   font-size: 2.8em;
   font-weight: 600;
   margin: 0;
   text-shadow: 2px 1px 2px rgba(211, 172, 43, 1);
-
-
-  &:hover {
-      cursor: pointer;
-          }
-
-  
+  cursor: pointer;
 `;
 
 const Nav = styled.nav`
@@ -146,14 +121,25 @@ const Header = () => {
     setActiveDropdown(activeDropdown === dropdown ? null : dropdown);
   };
 
+  const scrollToSection = () => {
+    // Implement scroll to section logic here
+    console.log('Scrolling to section');
+  };
+
   return (
     <HeaderContainer>
-      <div></div>
-      <LogoTxt>
-      Top-Law.com
-        
-      </LogoTxt>
-      <img src={phone} style={{ width: '50px', height: '60px' }} alt="Phone" /> 
+      <LogoTxt>Top-Law.com</LogoTxt>
+      <img 
+        className="image247" 
+        src={phone} 
+        style={{
+          width: '50px',
+          height: '60px',
+          borderRadius: '50%',
+          boxShadow: '0px 0px -5px rgba(255, 255, 255, 1)'
+        }} 
+        alt="Phone" 
+      />
       <PhoneNumber>(346) 316-6075!</PhoneNumber>
       <Nav>
         <Hamburger onClick={toggleMenu}>
@@ -182,45 +168,59 @@ const Header = () => {
           </MenuToggle>
         </Hamburger>
       </Nav>
-      <MobileMenu
-        initial={{ height: 0 }}
-        animate={{ height: isOpen ? 'auto' : 0 }}
-        transition={{ duration: 0.3 }}
-        isOpen={isOpen}
-      >
-        <MobileMenuItem whileTap={{ scale: 0.95 }}>Home</MobileMenuItem>
-        <MobileMenuItem whileTap={{ scale: 0.95 }}>The Team</MobileMenuItem>
-        <MobileMenuItem whileTap={{ scale: 0.95 }}>Reviews</MobileMenuItem>
-        <MobileMenuItem onClick={() => toggleDropdown('practice')}>
-          Personal Injury Areas of Practice
-          <DropDownMenu
+      <AnimatePresence>
+        {isOpen && (
+          <MobileMenu
             initial={{ height: 0 }}
-            animate={{ height: activeDropdown === 'practice' ? 'auto' : 0 }}
+            animate={{ height: 'auto' }}
+            exit={{ height: 0 }}
             transition={{ duration: 0.3 }}
           >
-            <DropDownItem>18 Wheeler Truck Accident Attorneys</DropDownItem>
-            <DropDownItem>Drunk Driver Accident Attorneys</DropDownItem>
-            <DropDownItem>Car Accident Attorneys</DropDownItem>
-            <DropDownItem>Dog Bite Attorneys</DropDownItem>
-            <DropDownItem>Motorcycle Accident Attorneys</DropDownItem>
-            <DropDownItem>Premises Liability Attorneys</DropDownItem>
-            <DropDownItem>Spinal Cord & Back Injuries</DropDownItem>
-            <DropDownItem>Wrongful Death Attorneys</DropDownItem>
-          </DropDownMenu>
-        </MobileMenuItem>
-        <MobileMenuItem whileTap={{ scale: 0.95 }}>Help & Information</MobileMenuItem>
-        <MobileMenuItem onClick={() => toggleDropdown('case')}>
-          Case Review
-          <DropDownMenu
-            initial={{ height: 0 }}
-            animate={{ height: activeDropdown === 'case' ? 'auto' : 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            <DropDownItem>Get Your Case Review</DropDownItem>
-            <DropDownItem>Why Hire a Personal Injury Attorney?</DropDownItem>
-          </DropDownMenu>
-        </MobileMenuItem>
-      </MobileMenu>
+            <MobileMenuItem whileTap={{ scale: 0.95 }}>Home</MobileMenuItem>
+            <MobileMenuItem whileTap={{ scale: 0.95 }}>The Team</MobileMenuItem>
+            <MobileMenuItem whileTap={{ scale: 0.95 }}>Reviews</MobileMenuItem>
+            <MobileMenuItem onClick={() => toggleDropdown('practice')}>
+              Personal Injury Areas of Practice
+              <AnimatePresence>
+                {activeDropdown === 'practice' && (
+                  <DropDownMenu
+                    initial={{ height: 0 }}
+                    animate={{ height: 'auto' }}
+                    exit={{ height: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <DropDownItem onClick={scrollToSection}>18 Wheeler Truck Accident Attorneys</DropDownItem>
+                    <DropDownItem onClick={scrollToSection}>Drunk Driver Accident Attorneys</DropDownItem>
+                    <DropDownItem>Car Accident Attorneys</DropDownItem>
+                    <DropDownItem>Dog Bite Attorneys</DropDownItem>
+                    <DropDownItem>Motorcycle Accident Attorneys</DropDownItem>
+                    <DropDownItem>Premises Liability Attorneys</DropDownItem>
+                    <DropDownItem>Spinal Cord & Back Injuries</DropDownItem>
+                    <DropDownItem>Wrongful Death Attorneys</DropDownItem>
+                  </DropDownMenu>
+                )}
+              </AnimatePresence>
+            </MobileMenuItem>
+            <MobileMenuItem whileTap={{ scale: 0.95 }}>Help & Information</MobileMenuItem>
+            <MobileMenuItem onClick={() => toggleDropdown('case')}>
+              Case Review
+              <AnimatePresence>
+                {activeDropdown === 'case' && (
+                  <DropDownMenu
+                    initial={{ height: 0 }}
+                    animate={{ height: 'auto' }}
+                    exit={{ height: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <DropDownItem>Get Your Case Review</DropDownItem>
+                    <DropDownItem>Why Hire a Personal Injury Attorney?</DropDownItem>
+                  </DropDownMenu>
+                )}
+              </AnimatePresence>
+            </MobileMenuItem>
+          </MobileMenu>
+        )}
+      </AnimatePresence>
     </HeaderContainer>
   );
 };

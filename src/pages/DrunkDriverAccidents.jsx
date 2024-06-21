@@ -4,16 +4,13 @@ import styles from '../styles/DrunkDriverAccidents.module.css';
 const DrunkDriverAccidents = () => {
   const [isButtonVisible, setIsButtonVisible] = useState(false);
   const heroRef = useRef(null);
+  const formRef = useRef(null);
 
   const handleScroll = () => {
     if (heroRef.current) {
       const heroBottom = heroRef.current.getBoundingClientRect().bottom;
       const viewportHeight = window.innerHeight;
-      if (heroBottom < viewportHeight) {
-        setIsButtonVisible(true);
-      } else {
-        setIsButtonVisible(false);
-      }
+      setIsButtonVisible(heroBottom < viewportHeight);
     }
   };
 
@@ -25,8 +22,8 @@ const DrunkDriverAccidents = () => {
   }, []);
 
   const scrollToForm = () => {
-    if (heroRef.current) {
-      heroRef.current.scrollIntoView({ behavior: 'smooth' });
+    if (formRef.current) {
+      formRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -37,18 +34,17 @@ const DrunkDriverAccidents = () => {
         <div ref={heroRef} className={styles.heroInfo}>
           <div className={styles.section}>
             <h1>Drunk Driver Accident Attorneys</h1>
-          <p>
-            If you or a loved one has been injured by a drunk driver, our team of experienced attorneys is here to help. Drunk driving accidents can cause severe injuries and even fatalities. We specialize in handling these cases, ensuring you get the representation and compensation you deserve.
-          </p>
-          {/* Form inside the hero section */}
-          <form>
-            <input type="text" placeholder="Your Name" required />
-            <input type="email" placeholder="Your Email" required />
-            <textarea placeholder="Describe your case" required></textarea>
-            <button type="submit">Submit</button>
-          </form>
+            <p>
+              If you or a loved one has been injured by a drunk driver, our team of experienced attorneys is here to help. Drunk driving accidents can cause severe injuries and even fatalities. We specialize in handling these cases, ensuring you get the representation and compensation you deserve.
+            </p>
+            {/* Form inside the hero section */}
+            <form ref={formRef}>
+              <input type="text" placeholder="Your Name" required />
+              <input type="email" placeholder="Your Email" required />
+              <textarea placeholder="Describe your case" required></textarea>
+              <button type="submit">Submit</button>
+            </form>
           </div>
-
         </div>
         <div className={styles.section}>
           <h2>Why You Need a Drunk Driver Accident Attorney</h2>

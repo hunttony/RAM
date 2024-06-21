@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { motion, AnimatePresence } from 'framer-motion';
 import '../styles/Menu.css';
@@ -7,11 +8,11 @@ const Nav = styled.nav`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, .6);
+  background-color: rgba(0, 0, 0, 0.6);
   padding: 5px;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.8);
   z-index: 2000;
-  
+
   @media (max-width: 768px) {
     display: none;
   }
@@ -32,7 +33,6 @@ const NavLink = styled.li`
   font-weight: 600;
 
   &:hover {
-    text-decoration: none;
     color: #d3ac2b;
   }
 `;
@@ -43,7 +43,6 @@ const DropDownMenu = styled(motion.ul)`
   top: 100%;
   left: 0;
   list-style: none;
-  
   padding: 10px;
   background-color: rgba(0, 0, 0, 0.6);
   border-radius: 5px;
@@ -56,7 +55,6 @@ const DropDownItem = styled.li`
   color: lightgrey;
 
   &:hover {
-    text-decoration: none;
     background-color: #d3ac2b;
     border-radius: 20px;
     color: black;
@@ -83,7 +81,7 @@ const Menu = ({ scrollToSection }) => {
     <div>
       <Nav>
         <NavLinks>
-          <NavLink onMouseEnter={() => handleMouseEnter('home')} onMouseLeave={handleMouseLeave}>
+          <NavLink onMouseEnter={() => handleMouseEnter('home')} onMouseLeave={handleMouseLeave} onClick={() => scrollToSection('home')}>
             Home
           </NavLink>
           <NavLink onMouseEnter={() => handleMouseEnter('practice')} onMouseLeave={handleMouseLeave}>
@@ -95,27 +93,27 @@ const Menu = ({ scrollToSection }) => {
                   animate="visible"
                   exit="hidden"
                   variants={menuVariants}
-                  transition={{ duration: .6, ease: "easeInOut" }}
+                  transition={{ duration: 0.6, ease: "easeInOut" }}
                 >
-                  <DropDownItem onClick={scrollToSection}>18 Wheeler Truck Accident Attorneys</DropDownItem>
-                  <DropDownItem>Drunk Driver Accident Attorneys</DropDownItem>
-                  <DropDownItem>Car Accident Attorneys</DropDownItem>
-                  <DropDownItem>Dog Bite Attorneys</DropDownItem>
-                  <DropDownItem>Motorcycle Accident Attorneys</DropDownItem>
-                  <DropDownItem>Premises Liability Attorneys</DropDownItem>
-                  <DropDownItem>Spinal Cord & Back Injuries</DropDownItem>
-                  <DropDownItem>Wrongful Death Attorneys</DropDownItem>
+                  <DropDownItem onClick={() => scrollToSection('18-wheeler')}>18 Wheeler Truck Accident Attorneys</DropDownItem>
+                  <DropDownItem onClick={() => scrollToSection('drunk-driver')}>Drunk Driver Accident Attorneys</DropDownItem>
+                  <DropDownItem onClick={() => scrollToSection('car-accident')}>Car Accident Attorneys</DropDownItem>
+                  <DropDownItem onClick={() => scrollToSection('dog-bite')}>Dog Bite Attorneys</DropDownItem>
+                  <DropDownItem onClick={() => scrollToSection('motorcycle')}>Motorcycle Accident Attorneys</DropDownItem>
+                  <DropDownItem onClick={() => scrollToSection('premises-liability')}>Premises Liability Attorneys</DropDownItem>
+                  <DropDownItem onClick={() => scrollToSection('spinal-cord')}>Spinal Cord & Back Injuries</DropDownItem>
+                  <DropDownItem onClick={() => scrollToSection('wrongful-death')}>Wrongful Death Attorneys</DropDownItem>
                 </DropDownMenu>
               )}
             </AnimatePresence>
           </NavLink>
-          <NavLink onMouseEnter={() => handleMouseEnter('team')} onMouseLeave={handleMouseLeave}>
+          <NavLink onMouseEnter={() => handleMouseEnter('team')} onMouseLeave={handleMouseLeave} onClick={() => scrollToSection('team')}>
             The Team
           </NavLink>
-          <NavLink onMouseEnter={() => handleMouseEnter('reviews')} onMouseLeave={handleMouseLeave}>
+          <NavLink onMouseEnter={() => handleMouseEnter('reviews')} onMouseLeave={handleMouseLeave} onClick={() => scrollToSection('reviews')}>
             Reviews
           </NavLink>
-          <NavLink onMouseEnter={() => handleMouseEnter('help')} onMouseLeave={handleMouseLeave}>
+          <NavLink onMouseEnter={() => handleMouseEnter('help')} onMouseLeave={handleMouseLeave} onClick={() => scrollToSection('help')}>
             Help & Information
           </NavLink>
           <NavLink onMouseEnter={() => handleMouseEnter('case')} onMouseLeave={handleMouseLeave}>
@@ -129,8 +127,8 @@ const Menu = ({ scrollToSection }) => {
                   variants={menuVariants}
                   transition={{ duration: 0.5, ease: "easeInOut" }}
                 >
-                  <DropDownItem>Get Your Case Review</DropDownItem>
-                  <DropDownItem>Why Hire a Personal Injury Attorney?</DropDownItem>
+                  <DropDownItem onClick={() => scrollToSection('case-review')}>Get Your Case Review</DropDownItem>
+                  <DropDownItem onClick={() => scrollToSection('hire-attorney')}>Why Hire a Personal Injury Attorney?</DropDownItem>
                 </DropDownMenu>
               )}
             </AnimatePresence>
@@ -139,6 +137,10 @@ const Menu = ({ scrollToSection }) => {
       </Nav>
     </div>
   );
+};
+
+Menu.propTypes = {
+  scrollToSection: PropTypes.func.isRequired,
 };
 
 export default Menu;

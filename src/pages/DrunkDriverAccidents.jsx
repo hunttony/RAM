@@ -35,7 +35,8 @@ const DrunkDriverAccidents = () => {
       <div className={styles.overlay}></div>
       <div className={styles.content}>
         <div ref={heroRef} className={styles.heroInfo}>
-          <h1>Drunk Driver Accident Attorneys</h1>
+          <div className={styles.section}>
+            <h1>Drunk Driver Accident Attorneys</h1>
           <p>
             If you or a loved one has been injured by a drunk driver, our team of experienced attorneys is here to help. Drunk driving accidents can cause severe injuries and even fatalities. We specialize in handling these cases, ensuring you get the representation and compensation you deserve.
           </p>
@@ -46,6 +47,8 @@ const DrunkDriverAccidents = () => {
             <textarea placeholder="Describe your case" required></textarea>
             <button type="submit">Submit</button>
           </form>
+          </div>
+
         </div>
         <div className={styles.section}>
           <h2>Why You Need a Drunk Driver Accident Attorney</h2>

@@ -1,10 +1,13 @@
 import { MongoClient } from 'mongodb';
+import dotenv from 'dotenv';
+
+// Load environment variables from .env.local file
+dotenv.config({ path: '.env.local' });
 
 let cachedClient = null;
 let cachedDb = null;
 
 const connectToDatabase = async (uri) => {
-  console.log('Connecting to MongoDB with URI: ' + uri);
   if (cachedClient && cachedDb) {
     return { client: cachedClient, db: cachedDb };
   }
@@ -16,8 +19,6 @@ const connectToDatabase = async (uri) => {
 
   await client.connect();
   const db = client.db(process.env.MONGODB_DB);
-
-  console.log('Connected to MongoDB: ' + db.connection);
   cachedClient = client;
   cachedDb = db;
 

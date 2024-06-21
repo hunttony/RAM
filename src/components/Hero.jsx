@@ -3,7 +3,7 @@
 import '../styles/Hero.css';
 import image1 from '../content/images/Attorney.jpg';
 import ClientIntakeForm from '../components/ClientIntakeForm';
-import twenty47 from '../content/images/24-hours.png';
+
 
 
 

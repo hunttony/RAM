@@ -1,50 +1,30 @@
 // src/components/Hero.js
 //import React from 'react';
 import '../styles/Hero.css';
-import video1 from '../content/videos/Untitled design (1).mp4';
+import image1 from '../content/images/Attorney.jpg';
 import ClientIntakeForm from '../components/ClientIntakeForm';
 import twenty47 from '../content/images/24-hours.png';
-import AnimatedText from '../components/AnimatedText';
+
+
 
 const Hero = () => {
   return (
     <section className="hero">
-      <video autoPlay muted loop>
-      <source src={video1} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-      <AnimatedText text="For a FREE consultation. Fill in the intake form." />
-      <div className="hero-info">
-        
-        <div>
-           
-          <div className="hero-info-left">
-            <img src={twenty47} style={{ width: '15%', height: 'auto'}} alt="24/7" />
-            <h2>Available 24/7</h2>
-          <p>Our injury legal team is available to answer</p>
-           <p>your calls 24/7 and provide you with a free case review.</p>
-           
-           
-           
-
-
-           <div className="hero-info-right">
-           <div>
-            <h1>(346) 316-6075</h1>
-            <p>call to get your site built today!</p>
-            </div>
-            
-           
-          </div>
-           </div>   
-                
-        </div>
-
-        <ClientIntakeForm />
-      <div>
       
+      
+      <div className="hero-info-left">
+        <img className="hero-img" src={image1} type="image/jpg" alt="Attorney"/>
       </div>
-
+      
+      <div className="hero-info">
+      
+      <ClientIntakeForm />
+        <div>
+          
+        <div className="hero-info-right">           
+           
+        </div> 
+        </div>
       </div>
 
       <div className="hero-info">

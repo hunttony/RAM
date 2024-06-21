@@ -7,10 +7,10 @@ const Nav = styled.nav`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(51, 58, 74, 1);
+  background-color: rgba(0, 0, 0, .6);
   padding: 5px;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.8);
-  z-index: 1000;
+  z-index: 2000;
   
   @media (max-width: 768px) {
     display: none;
@@ -45,9 +45,9 @@ const DropDownMenu = styled(motion.ul)`
   list-style: none;
   
   padding: 10px;
-  background-color: rgba(41, 48, 64, 0.9);
+  background-color: rgba(0, 0, 0, 0.6);
   border-radius: 5px;
-  z-index: 100;
+  z-index: 2000;
 `;
 
 const DropDownItem = styled.li`
@@ -68,7 +68,7 @@ const menuVariants = {
   visible: { opacity: 1, y: 0 }
 };
 
-const Menu = () => {
+const Menu = ({ scrollToSection }) => {
   const [activeMenu, setActiveMenu] = useState(null);
 
   const handleMouseEnter = (menu) => {
@@ -95,9 +95,9 @@ const Menu = () => {
                   animate="visible"
                   exit="hidden"
                   variants={menuVariants}
-                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                  transition={{ duration: .6, ease: "easeInOut" }}
                 >
-                  <DropDownItem>18 Wheeler Truck Accident Attorneys</DropDownItem>
+                  <DropDownItem onClick={scrollToSection}>18 Wheeler Truck Accident Attorneys</DropDownItem>
                   <DropDownItem>Drunk Driver Accident Attorneys</DropDownItem>
                   <DropDownItem>Car Accident Attorneys</DropDownItem>
                   <DropDownItem>Dog Bite Attorneys</DropDownItem>
@@ -127,7 +127,7 @@ const Menu = () => {
                   animate="visible"
                   exit="hidden"
                   variants={menuVariants}
-                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                  transition={{ duration: 0.5, ease: "easeInOut" }}
                 >
                   <DropDownItem>Get Your Case Review</DropDownItem>
                   <DropDownItem>Why Hire a Personal Injury Attorney?</DropDownItem>

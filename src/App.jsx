@@ -1,15 +1,23 @@
-// src/App.js
-// import React from 'react';
+import { useRef } from 'react';
 import { Helmet } from 'react-helmet';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Hero from './components/Hero';
-import Menu from './components/Menu';
-
+import EighteenWheelerAccidents from './pages/EighteenWheelerAccidents';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Menu from './components/Menu'; // Import your Menu component
+import DrunkDriverAccidents from './pages/DrunkDriverAccidents';
 import './App.css';
 
-
 const App = () => {
+  const accidentsSectionRef = useRef(null);
+
+  const scrollToSection = () => {
+    if (accidentsSectionRef.current) {
+      accidentsSectionRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="App">
       <Helmet>
@@ -37,9 +45,20 @@ const App = () => {
         </script>
       </Helmet>
       <Header />
-      <Menu />
+      <Router>
+        <Routes>
+          <Route path="/eighteen-wheeler-accidents" component={EighteenWheelerAccidents} />
+          <Route path="/drunk-driver-accidents" component={DrunkDriverAccidents} />
+          {/* Add other routes here */}
+        </Routes>
+      </Router>
+      <Menu scrollToSection={scrollToSection} />
       <main>
-        <Hero />        
+        <Hero />
+        <div ref={accidentsSectionRef}>
+          <EighteenWheelerAccidents />
+          <DrunkDriverAccidents />
+        </div>
       </main>
       <Footer />
     </div>

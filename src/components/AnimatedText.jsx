@@ -26,15 +26,15 @@ const containerVariants = {
 };
 
 const letterVariants = {
-  hidden: { opacity: 0, y: 0 },
+  hidden: { opacity: .5, y: 0 },
   visible: {
     opacity: 1,
     y: [0, -10, 0], // jump effect
-    color: ['white', 'gold', 'red'], // color change effect
+    color: ['red', 'red', 'gold'], // color change effect
     transition: {
-      duration: 0.2,
+      duration: 2,
       ease: 'easeInOut',
-      repeat: 2, // Loop the animation
+      repeat: Infinity, // Loop the animation
       repeatType: 'mirror', // Play animation forward and backward
     },
   },

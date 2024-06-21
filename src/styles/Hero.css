@@ -1,22 +1,28 @@
 .hero {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: column;   
+  height: 100%;
   width: 100vw;
-  min-height: 82vh;
-  position: relative;
-  overflow: hidden; 
+  
   color: #eeb600;
   z-index: 0;
   
 }
 
-.hero video {
+.hero-img {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
+  object-fit: cover;
+  opacity: 0.7;
+  animation: videoFade 2s forwards;
+  z-index: -2;
+}
+
+.hero-info img { 
+  
   object-fit: cover;
   opacity: 0.7;
   animation: videoFade 2s forwards;
@@ -34,25 +40,28 @@
 
 .hero-info {
   display: flex;
-  justify-content: center;
-  z-index: 100;
-  min-height: fit-content;
+  position: relative;  
+  right: 0;
+  height: fit-content; 
+  justify-content: flex-end;
   
   @media (max-width: 768px) {
-   
     flex-direction: column;
   }
 }
 
+
 .hero-info div {
-  margin: 5px;
-  padding: 20px; 
-  border-radius: 10px;
+  
+  margin: 15px;
+   
+  
   
   
 }
 
 .hero-info-left{
   min-height: 100%;
+
   background-color: rgba(0, 0, 0, 0.5);
 }

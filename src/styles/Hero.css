@@ -1,3 +1,6 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');
+
+
 .hero {
   display: flex;
   flex-direction: column;   
@@ -64,4 +67,19 @@
   min-height: 100%;
 
   background-color: rgba(0, 0, 0, 0.5);
+}
+/* Animate.css classes for slide-in effect */
+.slideInRight {
+  animation-name: slideInRight;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    visibility: visible;
+  }
+
+  to {
+    transform: translateX(0);
+  }
 }

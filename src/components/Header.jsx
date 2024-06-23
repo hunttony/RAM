@@ -11,7 +11,7 @@ const HeaderContainer = styled.header`
   padding: 10px;
   background-color: rgba(0, 0, 0, 0.7);
   color: lightgrey;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -27,6 +27,7 @@ const LogoTxt = styled.h1`
   font-weight: 600;
   margin: 0;
   text-shadow: 2px 1px 2px rgba(211, 172, 43, 1);
+  box-shadow: 2px 1px 8px rgba(0, 0, 0, 1);
   cursor: pointer;
 `;
 
@@ -37,7 +38,7 @@ const PhoneNumber = styled.h1`
   font-size: 2.8em;
   font-weight: 600;
   margin: 0;
-  text-shadow: 2px 1px 2px rgba(211, 172, 43, 1);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
   cursor: pointer;
 `;
 
@@ -72,8 +73,8 @@ const Line = styled(motion.span)`
 const MobileMenu = styled(motion.ul)`
   list-style: none;
   flex-direction: column;
-  padding: 0;
-  background-color: #282c34;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
   position: absolute;
   top: 60px;
   right: 20px;
@@ -92,6 +93,7 @@ const MobileMenuItem = styled(motion.li)`
 
   &:hover {
     background-color: #3a3f47;
+    border-radius: 5px;
   }
 `;
 

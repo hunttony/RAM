@@ -84,10 +84,10 @@ const Menu = ({ scrollToSection }) => {
           <NavLink onMouseEnter={() => handleMouseEnter('home')} onMouseLeave={handleMouseLeave} onClick={() => scrollToSection('home')}>
             Home
           </NavLink>
-          <NavLink onMouseEnter={() => handleMouseEnter('practice')} onMouseLeave={handleMouseLeave}>
-            Personal Injury Areas of Practice
+          <NavLink onMouseEnter={() => handleMouseEnter('services')} onMouseLeave={handleMouseLeave}>
+            Services
             <AnimatePresence>
-              {activeMenu === 'practice' && (
+              {activeMenu === 'services' && (
                 <DropDownMenu
                   initial="hidden"
                   animate="visible"
@@ -95,31 +95,31 @@ const Menu = ({ scrollToSection }) => {
                   variants={menuVariants}
                   transition={{ duration: 0.6, ease: "easeInOut" }}
                 >
-                  <DropDownItem onClick={() => scrollToSection('18-wheeler')}>18 Wheeler Truck Accident Attorneys</DropDownItem>
-                  <DropDownItem onClick={() => scrollToSection('drunk-driver')}>Drunk Driver Accident Attorneys</DropDownItem>
-                  <DropDownItem onClick={() => scrollToSection('car-accident')}>Car Accident Attorneys</DropDownItem>
-                  <DropDownItem onClick={() => scrollToSection('dog-bite')}>Dog Bite Attorneys</DropDownItem>
-                  <DropDownItem onClick={() => scrollToSection('motorcycle')}>Motorcycle Accident Attorneys</DropDownItem>
-                  <DropDownItem onClick={() => scrollToSection('premises-liability')}>Premises Liability Attorneys</DropDownItem>
-                  <DropDownItem onClick={() => scrollToSection('spinal-cord')}>Spinal Cord & Back Injuries</DropDownItem>
-                  <DropDownItem onClick={() => scrollToSection('wrongful-death')}>Wrongful Death Attorneys</DropDownItem>
+                  <DropDownItem onClick={() => scrollToSection('watch-live')}>Watch Live</DropDownItem>
+                  <DropDownItem onClick={() => scrollToSection('past-sermons')}>Past Sermons</DropDownItem>
+                  <DropDownItem onClick={() => scrollToSection('baptism')}>Baptism</DropDownItem>
+                  <DropDownItem onClick={() => scrollToSection('ministries')}>Ministries</DropDownItem>
+                  <DropDownItem onClick={() => scrollToSection('testimony')}>Share Your Testimony</DropDownItem>
+                  <DropDownItem onClick={() => scrollToSection('inspiration')}>Inspiration</DropDownItem>
+                  <DropDownItem onClick={() => scrollToSection('give')}>Give</DropDownItem>
+                  <DropDownItem onClick={() => scrollToSection('community')}>Community</DropDownItem>
                 </DropDownMenu>
               )}
             </AnimatePresence>
           </NavLink>
-          <NavLink onMouseEnter={() => handleMouseEnter('team')} onMouseLeave={handleMouseLeave} onClick={() => scrollToSection('team')}>
-            The Team
+          <NavLink onMouseEnter={() => handleMouseEnter('about')} onMouseLeave={handleMouseLeave} onClick={() => scrollToSection('about')}>
+            About Us
           </NavLink>
-          <NavLink onMouseEnter={() => handleMouseEnter('reviews')} onMouseLeave={handleMouseLeave} onClick={() => scrollToSection('reviews')}>
-            Reviews
+          <NavLink onMouseEnter={() => handleMouseEnter('events')} onMouseLeave={handleMouseLeave} onClick={() => scrollToSection('events')}>
+            Events
           </NavLink>
-          <NavLink onMouseEnter={() => handleMouseEnter('help')} onMouseLeave={handleMouseLeave} onClick={() => scrollToSection('help')}>
-            Help & Information
+          <NavLink onMouseEnter={() => handleMouseEnter('contact')} onMouseLeave={handleMouseLeave} onClick={() => scrollToSection('contact')}>
+            Contact
           </NavLink>
-          <NavLink onMouseEnter={() => handleMouseEnter('case')} onMouseLeave={handleMouseLeave}>
-            Case Review
+          <NavLink onMouseEnter={() => handleMouseEnter('more')} onMouseLeave={handleMouseLeave}>
+            More
             <AnimatePresence>
-              {activeMenu === 'case' && (
+              {activeMenu === 'more' && (
                 <DropDownMenu
                   initial="hidden"
                   animate="visible"
@@ -127,8 +127,9 @@ const Menu = ({ scrollToSection }) => {
                   variants={menuVariants}
                   transition={{ duration: 0.5, ease: "easeInOut" }}
                 >
-                  <DropDownItem onClick={() => scrollToSection('case-review')}>Get Your Case Review</DropDownItem>
-                  <DropDownItem onClick={() => scrollToSection('hire-attorney')}>Why Hire a Personal Injury Attorney?</DropDownItem>
+                  <DropDownItem onClick={() => scrollToSection('volunteer')}>Volunteer</DropDownItem>
+                  <DropDownItem onClick={() => scrollToSection('donate')}>Donate</DropDownItem>
+                  <DropDownItem onClick={() => scrollToSection('resources')}>Resources</DropDownItem>
                 </DropDownMenu>
               )}
             </AnimatePresence>

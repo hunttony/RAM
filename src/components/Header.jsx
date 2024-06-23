@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import { motion, AnimatePresence } from 'framer-motion';
-import phone from '../content/images/24-hours-support.gif';
+import SocialMediaLinks from '../components/SocialMediaLinks';
+import logo from '../content/images/Heading.png'
 
 const HeaderContainer = styled.header`
   display: flex;
@@ -128,19 +129,12 @@ const Header = () => {
 
   return (
     <HeaderContainer>
-      <LogoTxt>Top-Law.com</LogoTxt>
-      <img 
-        className="image247" 
-        src={phone} 
-        style={{
-          width: '50px',
-          height: '60px',
-          borderRadius: '50%',
-          boxShadow: '0px 0px -5px rgba(255, 255, 255, 1)'
-        }} 
-        alt="Phone" 
-      />
-      <PhoneNumber>(346) 316-6075!</PhoneNumber>
+      
+      <LogoTxt><img src={logo} alt="Logo" style={{ width: 'auto', height: '90px' }} /></LogoTxt>
+      
+      <SocialMediaLinks />
+        
+      <PhoneNumber>(409) 289-4305</PhoneNumber>
       <Nav>
         <Hamburger onClick={toggleMenu}>
           <MenuToggle initial={false} animate={isOpen ? 'open' : 'closed'}>
@@ -177,47 +171,29 @@ const Header = () => {
             transition={{ duration: 0.3 }}
           >
             <MobileMenuItem whileTap={{ scale: 0.95 }}>Home</MobileMenuItem>
-            <MobileMenuItem whileTap={{ scale: 0.95 }}>The Team</MobileMenuItem>
-            <MobileMenuItem whileTap={{ scale: 0.95 }}>Reviews</MobileMenuItem>
-            <MobileMenuItem onClick={() => toggleDropdown('practice')}>
-              Personal Injury Areas of Practice
+            <MobileMenuItem whileTap={{ scale: 0.95 }}>About Us</MobileMenuItem>
+            <MobileMenuItem whileTap={{ scale: 0.95 }}>Events</MobileMenuItem>
+            <MobileMenuItem onClick={() => toggleDropdown('ministries')}>
+              Ministries
               <AnimatePresence>
-                {activeDropdown === 'practice' && (
+                {activeDropdown === 'ministries' && (
                   <DropDownMenu
                     initial={{ height: 0 }}
                     animate={{ height: 'auto' }}
                     exit={{ height: 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <DropDownItem onClick={scrollToSection}>18 Wheeler Truck Accident Attorneys</DropDownItem>
-                    <DropDownItem onClick={scrollToSection}>Drunk Driver Accident Attorneys</DropDownItem>
-                    <DropDownItem>Car Accident Attorneys</DropDownItem>
-                    <DropDownItem>Dog Bite Attorneys</DropDownItem>
-                    <DropDownItem>Motorcycle Accident Attorneys</DropDownItem>
-                    <DropDownItem>Premises Liability Attorneys</DropDownItem>
-                    <DropDownItem>Spinal Cord & Back Injuries</DropDownItem>
-                    <DropDownItem>Wrongful Death Attorneys</DropDownItem>
+                    <DropDownItem onClick={scrollToSection}>Children's Ministry</DropDownItem>
+                    <DropDownItem onClick={scrollToSection}>Youth Ministry</DropDownItem>
+                    <DropDownItem onClick={scrollToSection}>Women's Ministry</DropDownItem>
+                    <DropDownItem onClick={scrollToSection}>Men's Ministry</DropDownItem>
+                    <DropDownItem onClick={scrollToSection}>Community Outreach</DropDownItem>
                   </DropDownMenu>
                 )}
               </AnimatePresence>
             </MobileMenuItem>
-            <MobileMenuItem whileTap={{ scale: 0.95 }}>Help & Information</MobileMenuItem>
-            <MobileMenuItem onClick={() => toggleDropdown('case')}>
-              Case Review
-              <AnimatePresence>
-                {activeDropdown === 'case' && (
-                  <DropDownMenu
-                    initial={{ height: 0 }}
-                    animate={{ height: 'auto' }}
-                    exit={{ height: 0 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <DropDownItem>Get Your Case Review</DropDownItem>
-                    <DropDownItem>Why Hire a Personal Injury Attorney?</DropDownItem>
-                  </DropDownMenu>
-                )}
-              </AnimatePresence>
-            </MobileMenuItem>
+            <MobileMenuItem whileTap={{ scale: 0.95 }}>Sermons</MobileMenuItem>
+            <MobileMenuItem whileTap={{ scale: 0.95 }}>Contact Us</MobileMenuItem>
           </MobileMenu>
         )}
       </AnimatePresence>

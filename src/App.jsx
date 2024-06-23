@@ -4,49 +4,50 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Hero from './components/Hero';
-import EighteenWheelerAccidents from './pages/EighteenWheelerAccidents';
-import DrunkDriverAccidents from './pages/DrunkDriverAccidents';
+import ChurchReligiousSection from './pages/ChurchReligiousSection';
+import VolunteerOpportunities from './pages/VolunteerOpportunities';
 import Menu from './components/Menu';
 import './App.css';
 
 const App = () => {
-  const accidentsSectionRef = useRef(null);
+  const religiousSectionRef = useRef(null);
 
   const scrollToSection = () => {
-    if (accidentsSectionRef.current) {
-      accidentsSectionRef.current.scrollIntoView({ behavior: 'smooth' });
+    if (religiousSectionRef.current) {
+      religiousSectionRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   return (
     <div className="App">
       <Helmet>
-        <title>Your Site Title</title>
-        <meta name="description" content="Your site description" />
+        <title>Restoration Apostolic Ministries</title>
+        <meta name="description" content="Description of Restoration Apostolic Ministries" />
         <meta
           name="keywords"
-          content="Personal Injury Attorneys, Car Accident Lawyers, Truck Accident Lawyers, Wrongful Death Attorneys, Legal Consultation, Expert Legal Services, Personal Injury Law Firm, Free Legal Consultation, Compensation Claims, Experienced Attorneys, Legal Representation, Accident Attorneys, Injury Lawyers, Consultation Services, Legal Assistance"
+          content="church, religious, ministry, community, faith, spiritual"
         />
-        <meta name="author" content="Flavor Pixel, Programmer: Antonio Hunt" />
-        <meta property="og:title" content="Your Attorney website" />
+        <meta name="author" content="Your Name" />
+        <meta property="og:title" content="Restoration Apostolic Ministries" />
         <meta
           property="og:description"
-          content="Welcome to Your Attorney website, your trusted partner for expert legal services and personal injury representation. Our dedicated team of experienced attorneys specializes in handling cases such as car accidents, truck accidents, wrongful death, and more. We provide personalized consultations and effective legal solutions to ensure you receive the justice and compensation you deserve. Contact us today for a free consultation and let us help you navigate your legal challenges with confidence."
+          content="Welcome to Restoration Apostolic Ministries, a community dedicated to spreading faith and spiritual growth. Join us in our various ministries and volunteer opportunities."
         />
-        <meta property="og:url" content="https://lawyer-site-ochre.vercel.app/" />
-        <meta property="og:image" content="https://www.yoursite.com/image.jpg" />
+        <meta property="og:url" content="https://example.com/" />
+        <meta property="og:image" content="https://example.com/image.jpg" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "http://schema.org",
-            "@type": "Website",
-            "name": "Attorney website",
-            "url": "https://lawyer-site-ochre.vercel.app/",
-            "author": {
-              "@type": "Person",
-              "name": "Flavor Pixel, Programmer: Antonio Hunt"
-            },
-            "description": "Welcome to Your Attorney website, your trusted partner for expert legal services and personal injury representation. Our dedicated team of experienced attorneys specializes in handling cases such as car accidents, truck accidents, wrongful death, and more. We provide personalized consultations and effective legal solutions to ensure you receive the justice and compensation you deserve. Contact us today for a free consultation and let us help you navigate your legal challenges with confidence.",
-            "image": "https://www.yoursite.com/image.jpg"
+            "@type": "Organization",
+            "name": "Restoration Apostolic Ministries",
+            "url": "https://example.com/",
+            "description": "Restoration Apostolic Ministries is a community dedicated to spreading faith and spiritual growth.",
+            "image": "https://example.com/image.jpg",
+            "sameAs": [
+              "https://www.facebook.com/yourministry",
+              "https://twitter.com/yourministry",
+              "https://www.instagram.com/yourministry"
+            ]
           })}
         </script>
       </Helmet>
@@ -55,14 +56,14 @@ const App = () => {
         <Menu scrollToSection={scrollToSection} />
         <main>
           <Hero />
-          <div ref={accidentsSectionRef}>
+          <div ref={religiousSectionRef}>
             <Routes>
-              <Route path="/eighteen-wheeler-accidents" element={<EighteenWheelerAccidents />} />
-              <Route path="/drunk-driver-accidents" element={<DrunkDriverAccidents />} />
+              <Route path="/church-religious-section" element={<ChurchReligiousSection />} />
+              <Route path="/volunteer-opportunities" element={<VolunteerOpportunities />} />
               {/* Add other routes here */}
             </Routes>
-            <EighteenWheelerAccidents />
-            <DrunkDriverAccidents />
+            <ChurchReligiousSection />
+            <VolunteerOpportunities />
           </div>
         </main>
         <Footer />

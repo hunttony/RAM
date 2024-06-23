@@ -1,13 +1,12 @@
-// src/components/ClientIntakeForm.js
+// src/components/ChurchContactForm.js
 
 import { useState } from 'react';
 import styled from 'styled-components';
 
-
 const FormContainer = styled.div`
   max-width: 600px;
   margin: 20px auto;
-  padding: 10px;
+  padding: 20px;
   border-radius: 20px;
   background-color: rgba(0, 0, 0, 0.5);  
 `;
@@ -21,6 +20,7 @@ const Label = styled.label`
   display: block;
   margin-bottom: 10px;
   font-weight: bold;
+  color: white;
 `;
 
 const Input = styled.input`
@@ -47,11 +47,12 @@ const CheckboxLabel = styled.label`
   margin-bottom: 10px;
   display: flex;
   align-items: center;
+  color: white;
 `;
 
 const Button = styled.button`
   padding: 10px 20px;
-  background-color: red;
+  background-color: #d3ac2b;
   border: none;
   border-radius: 3px;
   color: white;
@@ -61,13 +62,13 @@ const Button = styled.button`
   }
 `;
 
-const ClientIntakeForm = () => {
+const ChurchContactForm = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
     contactMethod: '',
-    needs: []
+    interests: []
   });
   const [response, setResponse] = useState(null);
 
@@ -80,9 +81,9 @@ const ClientIntakeForm = () => {
     const { name, checked } = e.target;
     setFormData((prevData) => {
       if (checked) {
-        return { ...prevData, needs: [...prevData.needs, name] };
+        return { ...prevData, interests: [...prevData.interests, name] };
       } else {
-        return { ...prevData, needs: prevData.needs.filter((need) => need !== name) };
+        return { ...prevData, interests: prevData.interests.filter((interest) => interest !== name) };
       }
     });
   };
@@ -100,8 +101,7 @@ const ClientIntakeForm = () => {
 
   return (
     <FormContainer>
-      
-      <h3> Fill in the intake form for a FREE consultation.</h3>
+      <h3>Contact Us</h3>
       <form onSubmit={handleSubmit}>
         <FormGroup>
           <Label htmlFor="name">Name</Label>
@@ -125,19 +125,23 @@ const ClientIntakeForm = () => {
           </Select>
         </FormGroup>
         <FormGroup>
-          <Label>What are your needs? (Select all that apply)</Label>
+          <Label>What are you interested in? (Select all that apply)</Label>
           <CheckboxGroup>
             <CheckboxLabel>
-              <Input type="checkbox" name="Consultation" onChange={handleCheckboxChange} />
-              Consultation
+              <Input type="checkbox" name="Bible Study" onChange={handleCheckboxChange} />
+              Bible Study
             </CheckboxLabel>
             <CheckboxLabel>
-              <Input type="checkbox" name="Representation" onChange={handleCheckboxChange} />
-              Representation
+              <Input type="checkbox" name="Volunteering" onChange={handleCheckboxChange} />
+              Volunteering
             </CheckboxLabel>
             <CheckboxLabel>
-              <Input type="checkbox" name="Documentation" onChange={handleCheckboxChange} />
-              Documentation
+              <Input type="checkbox" name="Prayer Requests" onChange={handleCheckboxChange} />
+              Prayer Requests
+            </CheckboxLabel>
+            <CheckboxLabel>
+              <Input type="checkbox" name="Counseling" onChange={handleCheckboxChange} />
+              Counseling
             </CheckboxLabel>
             <CheckboxLabel>
               <Input type="checkbox" name="Other" onChange={handleCheckboxChange} />
@@ -152,4 +156,4 @@ const ClientIntakeForm = () => {
   );
 };
 
-export default ClientIntakeForm;
+export default ChurchContactForm;

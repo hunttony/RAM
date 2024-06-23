@@ -12,6 +12,12 @@ const HeaderContainer = styled.header`
   background-color: rgba(0, 0, 0, 0.7);
   color: lightgrey;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    
+  }
+
 `;
 
 const LogoTxt = styled.h1`

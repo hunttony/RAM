@@ -20,6 +20,7 @@ const SocialLink = styled.a`
   &:hover {
     color: #d3ac2b;
   }
+
 `;
 
 const SocialMediaLinks = () => {
